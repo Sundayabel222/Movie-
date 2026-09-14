@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MovieDB</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+
+            <div class="logo">
+                 <span>Movie<span class="blue">DB</span></span>
+            </div>
+
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput"
+                    placeholder="Search for movie, genre..."
+                >
+
+                <button id="searchButton">🔍</button>
+            </div>
+
+            <div class="header-icons">
+                
+                <div class="profile"></div>
+            </div>
+
+        </header>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="trending">Trending Now</p>
+
+                <h1 id="movieTitle">Dune: Part Two</h1>
+
+                <div class="rating">
+                    ⭐ <span id="movieRating">8.5</span>
+                    <span>(482K)</span>
+                </div>
+
+                <p class="movie-info">
+                    <span id="movieYear">2024</span>
+                    •
+                    <span id="movieRuntime">2h 46m</span>
+                    •
+                    PG-13
+                    •
+                    Adventure, Drama, Sci-Fi
+                </p>
+
+                <div class="genres">
+                    <button>Adventure</button>
+                    <button>Drama</button>
+                    <button>Sci-Fi</button>
+                </div>
+
+                <p class="description">
+                    Paul Atreides unites with Chani and the Fremen
+                    while on a warpath of revenge against the
+                    conspirators who destroyed his family.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button id="trailerButton" class="watch-button">
+                        ▶ Watch Trailer
+                    </button>
+
+                    <button id="listButton" class="list-button">
+                        ＋ My List
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- NAVIGATION -->
+        <nav class="tabs">
+
+            <button class="tab active" data-tab="overview">
+                Overview
+            </button>
+
+            <button class="tab" data-tab="cast">
+                Cast
+            </button>
+
+            <button class="tab" data-tab="reviews">
+                Reviews
+            </button>
+
+            <button class="tab" data-tab="similar">
+                Similar Movies
+            </button>
+
+        </nav>
+
+
+        <!-- MAIN CONTENT -->
+        <main>
+
+            <div class="left-content">
+
+                <!-- OVERVIEW -->
+                <section id="overview" class="tab-content">
+
+                    <div class="overview-box">
+
+                        <div class="trailer">
+
+                            <!-- Put your movie image/video here -->
+                            <img 
+                                id="trailerImage"
+                                src="https://image.tmdb.org/t/p/w780/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg"
+                                alt="Dune trailer"
+                            >
+
+                            <button id="playButton" class="play">
+                                ▶
+                            </button>
+
+                            <p class="youtube">
+                                ▶ YouTube
+                            </p>
+
+                        </div>
+
+
+                        <div class="movie-details">
+
+                            <div>
+                                <span class="detail-icon">◷</span>
+
+                                <p>Runtime</p>
+
+                                <h3>2h 46m</h3>
+                            </div>
+
+
+                            <div>
+                                <span class="detail-icon">▣</span>
+
+                                <p>Release Date</p>
+
+                                <h3>Mar 1, 2024</h3>
+                            </div>
+
+
+                            <div>
+                                <span class="detail-icon">♡</span>
+
+                                <p>Genres</p>
+
+                                <div class="small-genres">
+                                    <span>Adventure</span>
+                                    <span>Drama</span>
+                                    <span>Sci-Fi</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CAST -->
+                    <div class="cast-section">
+
+                        <div class="section-title">
+                            <h2>Cast</h2>
+
+                            <button id="viewCast">
+                                View all →
+                            </button>
+                        </div>
+
+
+                        <div class="cast-container" id="castContainer">
+
+                            <div class="cast-card">
+
+                                <img src="https://image.tmdb.org/t/p/w200/1V0Z6rY9k8p4hLx2zZx7L9.jpg">
+
+                                <h4>Timothée Chalamet</h4>
+
+                                <p>Paul Atreides</p>
+
+                            </div>
+
+
+                            <div class="cast-card">
+
+                                <img src="https://image.tmdb.org/t/p/w200/placeholder.jpg">
+
+                                <h4>Zendaya</h4>
+
+                                <p>Chani</p>
+
+                            </div>
+
+
+                            <div class="cast-card">
+
+                                <img src="https://image.tmdb.org/t/p/w200/placeholder.jpg">
+
+                                <h4>Rebecca Ferguson</h4>
+
+                                <p>Jessica</p>
+
+                            </div>
+
+
+                            <div class="cast-card">
+
+                                <img src="https://image.tmdb.org/t/p/w200/placeholder.jpg">
+
+                                <h4>Josh Brolin</h4>
+
+                                <p>Gurney Halleck</p>
+
+                            </div>
+
+
+                            <div class="cast-card">
+
+                                <img src="https://image.tmdb.org/t/p/w200/placeholder.jpg">
+
+                                <h4>Stellan Skarsgård</h4>
+
+                                <p>Baron Harkonnen</p>
+
+                            </div>
+
+
+                            <div class="cast-card">
+
+                                <img src="https://image.tmdb.org/t/p/w200/placeholder.jpg">
+
+                                <h4>Austin Butler</h4>
+
+                                <p>Feyd-Rautha</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- CAST TAB -->
+                <section id="cast" class="tab-content hidden">
+
+                    <h2>Movie Cast</h2>
+
+                    <p>
+                        Here you can see all the actors in this movie.
+                    </p>
+
+                </section>
+
+
+                <!-- REVIEWS TAB -->
+                <section id="reviews" class="tab-content hidden">
+
+                    <h2>Reviews</h2>
+
+                    <div class="review">
+                        ⭐⭐⭐⭐⭐
+                        <p>
+                            Amazing movie with great visuals and story.
+                        </p>
+                    </div>
+
+                </section>
+
+
+                <!-- SIMILAR TAB -->
+                <section id="similar" class="tab-content hidden">
+
+                    <h2>Similar Movies</h2>
+
+                    <p>
+                        Movies similar to the selected movie will
+                        appear here.
+                    </p>
+
+                </section>
+
+            </div>
+
+
+            <!-- RIGHT SIDE -->
+            <aside>
+
+                <div class="similar-title">
+
+                    <h2>Similar Movies</h2>
+
+                    <button id="viewSimilar">
+                        View all →
+                    </button>
+
+                </div>
+
+
+                <div id="similarMovies">
+
+                    <div class="similar-movie">
+
+                        <img src="https://image.tmdb.org/t/p/w200/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg">
+
+                        <div>
+                            <h3>Dune</h3>
+                            <p>8.0 (2021)</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="similar-movie">
+
+                        <img src="https://image.tmdb.org/t/p/w200/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg">
+
+                        <div>
+                            <h3>Blade Runner 2049</h3>
+                            <p> 8.0 (2017)</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="similar-movie">
+
+                        <img src="https://image.tmdb.org/t/p/w200/6YwkGolwd7bMrMacAbXyT8Z2KpK.jpg">
+
+                        <div>
+                            <h3>The Martian</h3>
+                            <p> 8.0 (2015)</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="similar-movie">
+
+                        <img src="https://image.tmdb.org/t/p/w200/46Ae6hZ3g5z4jJ4x3v1Y3.jpg">
+
+                        <div>
+                            <h3>Arrival</h3>
+                            <p> 7.9 (2016)</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="similar-movie">
+
+                        <img src="https://image.tmdb.org/t/p/w200/yF1eOkaYvwiORauRCPWznV9xVvi.jpg">
+
+                        <div>
+                            <h3>The Hunger Games</h3>
+                            <p> 7.2 (2012)</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
