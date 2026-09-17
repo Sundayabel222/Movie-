@@ -1,12 +1,6 @@
-// =====================================
-// PUT YOUR API HERE
-// =====================================
-
-// Replace this with your API key
 const API_KEY = "d21f10991a75693df2e960814094b901";
 
-// Replace this with your API URL
-const API_URL = "https://api.themoviedb.org/3/search/movie?query=Batman&api_key=d21f10991a75693df2e960814094b901";
+const URL = "https://api.themoviedb.org/3/search/movie?query=Batman&api_key=d21f10991a75693df2e960814094b901";
 
 
 const searchInput = document.getElementById("searchInput");
@@ -59,17 +53,6 @@ searchInput.addEventListener("keypress", function (event) {
 async function searchMovie(movieName) {
 
     try {
-
-        /*
-        PUT YOUR API REQUEST HERE.
-
-        For example, if you are using TMDB:
-
-        const url =
-        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${movieName}`;
-
-        */
-
         const url =
             `${API_URL}?api_key=${API_KEY}&query=${movieName}`;
 
