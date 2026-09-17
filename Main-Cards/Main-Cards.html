@@ -3,50 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Discovery</title>
+    <title>Movieflex - Movie Discovery</title>
     <link rel="stylesheet" href="Main-Cards.css">
 </head>
 <body>
+    
+    <div class="container">
 
-    <!-- Trending Movies Section -->
-    <div class="section-container">
-        <div class="section-header">
-            <div class="section-title-group">
-                <div class="category">Discover</div>
-                <h2>Trending Movies</h2>
+        <!-- HEADER -->
+        <header>
+            <div class="logo" style="display: flex; align-items: center; gap: 15px;">
+                <button id="backButton" class="back-btn hidden">← Back</button>
+                <span>Movie<span class="blue">flex</span></span>
             </div>
-            <a href="#" class="view-all">View All →</a>
-        </div>
-        <div class="movie-row" id="trending-row">
-            <!-- Trending Cards Will Be Put Inside -->
-        </div>
-    </div>
 
-    <!-- Top Rated Movies Section -->
-    <div class="section-container">
-        <div class="section-header">
-            <div class="section-title-group">
-                <div class="category">Best of the Best</div>
-                <h2>Top Rated Movies</h2>
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput"
+                    placeholder="Search for movie, genre..."
+                >
+                <button id="searchButton">🔍</button>
             </div>
-            <a href="#" class="view-all">View All →</a>
-        </div>
-        <div class="movie-row" id="top-rated-row">
-            <!-- Top Rated Cards Will Be Put Inside -->
-        </div>
-    </div>
 
-    <!-- Upcoming Movies Section -->
-    <div class="section-container">
-        <div class="section-header">
-            <div class="section-title-group">
-                <div class="category">Coming Soon</div>
-                <h2>Upcoming Movies</h2>
+            <div class="header-icons">
+                <div class="profile"></div>
             </div>
-            <a href="#" class="view-all">View All →</a>
+        </header>
+
+        <!-- VIEW 1: HOME DISCOVERY (Hero + Movie Rows) -->
+        <div id="homeView" class="view-section">
+            <!-- HERO SECTION -->
+            <section class="hero" id="heroSection">
+                <div class="hero-content">
+                    <p class="trending">Trending Now</p>
+                    <h1 id="heroMovieTitle">Dune: Part Two</h1>
+
+                    <div class="rating">
+                        ⭐ <span id="heroMovieRating">8.5</span>
+                        <span id="heroVoteCount">(482K)</span>
+                    </div>
+
+                    <p class="movie-info">
+                        <span id="heroMovieYear">2024</span>
+                        •
+                        <span id="heroMovieRuntime">2h 46m</span>
+                        •
+                        <span id="heroMovieCert">PG-13</span>
+                        •
+                        <span id="heroMovieGenresText">Adventure, Drama, Sci-Fi</span>
+                    </p>
+
+                    <div class="genres" id="heroGenresContainer">
+                        <!-- Dynamic Genre Badges -->
+                    </div>
+
+                    <p class="description" id="heroMovieDescription">
+                        Paul Atreides unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <button id="heroTrailerButton" class="watch-button">
+                            ▶ Watch Trailer
+                        </button>
+                        <button id="heroListButton" class="list-button">
+                            ＋ My List
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MOVIE CARD ROWS SECTION -->
+            <div style="margin-top: 40px;">
+                <div class="section-container">
+                    <div class="section-header">
+                        <div class="section-title-group">
+                            <div class="category">Discover</div>
+                            <h2>Trending Movies</h2>
+                        </div>
+                        <a href="#" class="view-all">View All →</a>
+                    </div>
+                    <div class="movie-row" id="trending-row"></div>
+                </div>
+
+                <div class="section-container">
+                    <div class="section-header">
+                        <div class="section-title-group">
+                            <div class="category">Best of the Best</div>
+                            <h2>Top Rated Movies</h2>
+                        </div>
+                        <a href="#" class="view-all">View All →</a>
+                    </div>
+                    <div class="movie-row" id="top-rated-row"></div>
+                </div>
+
+                <div class="section-container">
+                    <div class="section-header">
+                        <div class="section-title-group">
+                            <div class="category">Coming Soon</div>
+                            <h2>Upcoming Movies</h2>
+                        </div>
+                        <a href="#" class="view-all">View All →</a>
+                    </div>
+                    <div class="movie-row" id="upcoming-row"></div>
+                </div>
+            </div>
         </div>
-        <div class="movie-row" id="upcoming-row">
-            <!-- Upcoming Cards Will Be Put Inside -->
+
+        <!-- VIEW 2: DETAILED MOVIE DASHBOARD -->
+        <div id="detailsView" class="view-section hidden">
+            <!-- NAVIGATION TABS -->
+            <nav class="tabs">
+                <button class="tab active" data-tab="overview">Overview</button>
+                <button class="tab" data-tab="cast">Cast</button>
+                <button class="tab" data-tab="reviews">Reviews</button>
+                <button class="tab" data-tab="similar">Similar Movies</button>
+            </nav>
+
+            <!-- MAIN CONTENT -->
+            <main>
+                <div class="left-content">
+
+                    <!-- OVERVIEW TAB CONTENT -->
+                    <section id="overview" class="tab-content">
+                        <div class="overview-box">
+                            <div class="trailer">
+                                <img id="trailerImage" src="" alt="Movie trailer poster">
+                                <button id="playButton" class="play">▶</button>
+                                <p class="youtube">▶ YouTube</p>
+                            </div>
+
+                            <div class="movie-details">
+                                <div>
+                                    <span class="detail-icon">◷</span>
+                                    <p>Runtime</p>
+                                    <h3 id="detailRuntime">2h 46m</h3>
+                                </div>
+
+                                <div>
+                                    <span class="detail-icon">▣</span>
+                                    <p>Release Date</p>
+                                    <h3 id="detailReleaseDate">Mar 1, 2024</h3>
+                                </div>
+
+                                <div>
+                                    <span class="detail-icon">♡</span>
+                                    <p>Genres</p>
+                                    <div class="small-genres" id="detailGenresContainer"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CAST PREVIEW SECTION -->
+                        <div class="cast-section">
+                            <div class="section-title">
+                                <h2>Cast</h2>
+                                <button id="viewCast">View all →</button>
+                            </div>
+                            <div class="cast-container" id="castContainer"></div>
+                        </div>
+                    </section>
+
+                    <!-- CAST TAB -->
+                    <section id="cast" class="tab-content hidden">
+                        <h2>Full Movie Cast</h2>
+                        <div class="cast-container" id="fullCastContainer" style="margin-top: 20px;"></div>
+                    </section>
+
+                    <!-- REVIEWS TAB -->
+                    <section id="reviews" class="tab-content hidden">
+                        <h2>Reviews</h2>
+                        <div class="review">
+                            ⭐⭐⭐⭐⭐
+                            <p>Amazing movie with great visuals and story.</p>
+                        </div>
+                    </section>
+
+                    <!-- SIMILAR MOVIES TAB -->
+                    <section id="similar" class="tab-content hidden">
+                        <h2>Similar Movies</h2>
+                        <div id="fullSimilarContainer" style="margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px;"></div>
+                    </section>
+
+                </div>
+
+                <!-- RIGHT SIDEBAR (SIMILAR MOVIES) -->
+                <aside>
+                    <div class="similar-title">
+                        <h2>Similar Movies</h2>
+                        <button id="viewSimilar">View all →</button>
+                    </div>
+                    <div id="similarMovies"></div>
+                </aside>
+            </main>
         </div>
     </div>
 
