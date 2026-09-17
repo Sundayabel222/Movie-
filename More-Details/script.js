@@ -1,10 +1,7 @@
 const API_KEY = "d21f10991a75693df2e960814094b901";
-
-const URL = "https://api.themoviedb.org/3/search/movie?query=Batman&api_key=d21f10991a75693df2e960814094b901";
-
+const BASE_URL = "https://api.themoviedb.org/3";
 
 const searchInput = document.getElementById("searchInput");
-
 const searchButton = document.getElementById("searchButton");
 
 const trailerButton = document.getElementById("trailerButton");
@@ -19,79 +16,49 @@ const tabContents = document.querySelectorAll(".tab-content");
 
 
 // SEARCH BUTTON
-
 searchButton.addEventListener("click", function () {
+    const movieName = searchInput.value.trim();
 
-    const movieName = searchInput.value;
-
-    if (movieName === "") {
+    if (!movieName) {
         alert("Please type a movie name");
         return;
     }
 
     searchMovie(movieName);
-
 });
 
-
-
 // SEARCH WHEN ENTER IS PRESSED
-
-
-searchInput.addEventListener("keypress", function (event) {
-
+searchInput.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
-
         searchButton.click();
-
     }
-
 });
 
 // SEARCH MOVIE USING API
-
 async function searchMovie(movieName) {
-
     try {
-        const url =
-            `${API_URL}?api_key=${API_KEY}&query=${movieName}`;
-
+        const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(movieName)}`;
 
         const response = await fetch(url);
-
         const data = await response.json();
 
-        console.log(data);
-
-        // You can use the information from your API here.
-
         if (data.results && data.results.length > 0) {
-
             const movie = data.results[0];
 
-            document.getElementById("movieTitle").textContent =
-                movie.title;
-
-            document.getElementById("movieRating").textContent =
-                movie.vote_average;
-
-            document.getElementById("movieYear").textContent =
-                movie.release_date;
-
+            document.getElementById("movieTitle").textContent = movie.title;
+            document.getElementById("movieRating").textContent = movie.vote_average
+                ? movie.vote_average.toFixed(1)
+                : "N/A";
+            document.getElementById("movieYear").textContent = movie.release_date
+                ? movie.release_date.split("-")[0]
+                : "N/A";
         } else {
-
             alert("Movie not found");
-
         }
-
     } catch (error) {
-
-        console.log(error);
-
+        console.error(error);
         alert("Something went wrong with the API");
-
     }
-
 }
 
 

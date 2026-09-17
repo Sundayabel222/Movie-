@@ -276,14 +276,14 @@ backButton.addEventListener("click", () => {
 // --- SEARCH FUNCTIONALITY ---
 searchButton.addEventListener("click", function () {
   const query = searchInput.value.trim();
-  if (query === "") {
+  if (!query) {
     alert("Please type a movie name");
     return;
   }
   searchAndLoadMovie(query);
 });
 
-searchInput.addEventListener("keypress", function (event) {
+searchInput.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     searchButton.click();
   }
